@@ -22,8 +22,27 @@ class MyApp extends StatelessWidget {
       animation: settingsController,
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
-          theme: ThemeData(),
-          darkTheme: ThemeData.dark(),
+          theme: ThemeData(
+            textTheme: const TextTheme(
+              displayLarge: TextStyle(
+                color: Colors.black,
+                fontFamily: 'Morganite',
+                height: 0.8,
+                fontSize: 72,
+              ),
+            ),
+          ),
+          darkTheme: ThemeData(
+            brightness: Brightness.dark,
+            textTheme: const TextTheme(
+              displayLarge: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Morganite',
+                height: 0.8,
+                fontSize: 72,
+              ),
+            ),
+          ),
           themeMode: settingsController.themeMode,
           home: HomeView(
             controller: settingsController,

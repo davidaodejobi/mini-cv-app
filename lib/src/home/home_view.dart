@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 import 'home_controller.dart';
@@ -17,35 +15,59 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log(ThemeMode.system == ThemeMode.light ? 'light' : 'dark');
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Settings'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        // Glue the SettingsController to the theme selection DropdownButton.
-        //
-        // When a user selects a theme from the dropdown list, the
-        // SettingsController is updated, which rebuilds the MaterialApp.
-        child: DropdownButton<ThemeMode>(
-          // Read the selected themeMode from the controller
-          value: controller.themeMode,
-          // Call the updateThemeMode method any time the user selects a theme.
-          onChanged: controller.updateThemeMode,
-          items: const [
-            DropdownMenuItem(
-              value: ThemeMode.system,
-              child: Text('System Theme'),
+      body: SafeArea(
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'I take Ideas, build them,\n',
+                          style: Theme.of(context).textTheme.displayLarge,
+                        ),
+                        TextSpan(
+                          text: '       and learn from them,\n',
+                          style: Theme.of(context).textTheme.displayLarge,
+                        ),
+                        TextSpan(
+                          text: '  to create balance.\n',
+                          style: Theme.of(context).textTheme.displayLarge,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-            DropdownMenuItem(
-              value: ThemeMode.light,
-              child: Text('Light Theme'),
+            Positioned(
+              top: 0,
+              right: 5,
+              child: IconButton(
+                onPressed: () => controller.updateThemeMode(
+                  controller.themeMode == ThemeMode.light
+                      ? ThemeMode.dark
+                      : ThemeMode.light,
+                ),
+                icon: Builder(
+                  builder: (_) {
+                    switch (controller.themeMode) {
+                      case ThemeMode.light:
+                        return const Icon(Icons.dark_mode);
+                      case ThemeMode.dark:
+                        return const Icon(Icons.light_mode);
+                      default:
+                        return const Icon(Icons.dark_mode);
+                    }
+                  },
+                ),
+              ),
             ),
-            DropdownMenuItem(
-              value: ThemeMode.dark,
-              child: Text('Dark Theme'),
-            )
           ],
         ),
       ),
