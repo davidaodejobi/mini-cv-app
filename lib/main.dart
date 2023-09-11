@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'src/app.dart';
-import 'src/home/home_controller.dart';
-import 'src/home/home_service.dart';
+import 'view/app.dart';
+import 'view/home/home_controller.dart';
+import 'view/home/home_service.dart';
 
 void main() async {
   final settingsController = HomeController(HomeService());

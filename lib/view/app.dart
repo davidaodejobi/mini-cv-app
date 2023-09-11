@@ -30,6 +30,15 @@ class MyApp extends StatelessWidget {
                 height: 0.8,
                 fontSize: 72,
               ),
+              titleLarge: TextStyle(
+                color: Colors.black,
+                fontFamily: 'Montserrat',
+              ),
+              titleMedium: TextStyle(
+                color: Colors.black,
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
           darkTheme: ThemeData(
@@ -40,6 +49,15 @@ class MyApp extends StatelessWidget {
                 fontFamily: 'Morganite',
                 height: 0.8,
                 fontSize: 72,
+              ),
+              titleLarge: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Montserrat',
+              ),
+              titleMedium: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),
