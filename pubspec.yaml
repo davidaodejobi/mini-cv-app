@@ -1,10 +1,10 @@
 name: cv_app
 description: A new Flutter project.
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=2.19.4 <3.0.0'
+  sdk: ">=2.19.4 <3.0.0"
 
 dependencies:
   flutter:
@@ -17,3 +17,28 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  fonts:
+    - family: Morganite
+      fonts:
+        - asset: assets/fonts/Morganite-Book.ttf
+        - asset: assets/fonts/Morganite-Black.ttf
+          weight: 900
+        - asset: assets/fonts/Morganite-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Morganite-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Morganite-SemiBold.ttf
+          weight: 600
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-Regular.ttf
+          weight: 500
+        - asset: assets/fonts/Montserrat-Medium.ttf
+          weight: 400
+        - asset: assets/fonts/Montserrat-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Montserrat-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Montserrat-Thin.ttf
+          weight: 100

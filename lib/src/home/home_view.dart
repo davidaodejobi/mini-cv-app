@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import 'home_controller.dart';
@@ -15,6 +17,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    log(ThemeMode.system == ThemeMode.light ? 'light' : 'dark');
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
