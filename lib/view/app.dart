@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../controller/home_controller.dart';
 import 'home/home_view.dart';
 
-/// The Widget that configures your application.
 class MyApp extends StatelessWidget {
   const MyApp({
     super.key,

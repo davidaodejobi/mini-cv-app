@@ -1,13 +1,11 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cv_app/utils/extensions.dart';
-import 'package:cv_app/view/edit/edit_view.dart';
+import 'package:cv_app/view/home/widget/action_box.dart';
+import 'package:cv_app/view/home/widget/details_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../controller/home_controller.dart';
 
-/// Displays the various settings that can be customized by the user.
-///
-/// When a user changes a setting, the SettingsController is updated and
-/// Widgets that listen to the SettingsController are rebuilt.
 class HomeView extends StatefulWidget {
   const HomeView({super.key, required this.controller});
 
@@ -88,172 +86,21 @@ class _HomeViewState extends State<HomeView> {
               child: Draggable(
                 maxSimultaneousDrags: 1,
                 feedback: Material(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      // border: Border.all(
-                      //   color: controller.themeMode == ThemeMode.dark
-                      //       ? Colors.white10.withAlpha(80)
-                      //       : Colors.black.withAlpha(80),
-                      // ),
-                      borderRadius: BorderRadius.circular(6),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withAlpha(100),
-                          blurRadius: 10.0,
-                          spreadRadius: 0.0,
-                        ),
-                      ],
-                      color: Colors.grey.withOpacity(0.2),
-                    ),
-                    child: Column(
-                      children: [
-                        IconButton(
-                          onPressed: () => widget.controller.updateThemeMode(
-                            widget.controller.themeMode == ThemeMode.light
-                                ? ThemeMode.dark
-                                : ThemeMode.light,
-                          ),
-                          icon: Builder(
-                            builder: (_) {
-                              switch (widget.controller.themeMode) {
-                                case ThemeMode.light:
-                                  return const Icon(Icons.dark_mode);
-                                case ThemeMode.dark:
-                                  return const Icon(Icons.light_mode);
-                                default:
-                                  return const Icon(Icons.dark_mode);
-                              }
-                            },
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const Scaffold(
-                                  body: Center(
-                                      child: Text(
-                                'Settings',
-                              ))),
-                            ),
-                          ),
-                          icon: const Icon(Icons.edit_note_sharp),
-                        ),
-                      ],
-                    ),
+                  child: ActionBox(
+                    controller: widget.controller,
                   ),
                 ),
                 childWhenDragging: Opacity(
                   opacity: .3,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      // border: Border.all(
-                      //   color: controller.themeMode == ThemeMode.dark
-                      //       ? Colors.white10.withAlpha(80)
-                      //       : Colors.black.withAlpha(80),
-                      // ),
-                      borderRadius: BorderRadius.circular(6),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withAlpha(100),
-                          blurRadius: 10.0,
-                          spreadRadius: 0.0,
-                        ),
-                      ],
-                      color: Colors.grey.withOpacity(0.2),
-                    ),
-                    child: Column(
-                      children: [
-                        IconButton(
-                          onPressed: () => widget.controller.updateThemeMode(
-                            widget.controller.themeMode == ThemeMode.light
-                                ? ThemeMode.dark
-                                : ThemeMode.light,
-                          ),
-                          icon: Builder(
-                            builder: (_) {
-                              switch (widget.controller.themeMode) {
-                                case ThemeMode.light:
-                                  return const Icon(Icons.dark_mode);
-                                case ThemeMode.dark:
-                                  return const Icon(Icons.light_mode);
-                                default:
-                                  return const Icon(Icons.dark_mode);
-                              }
-                            },
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => const Scaffold(
-                                  body: Center(
-                                      child: Text(
-                                'Settings',
-                              ))),
-                            ),
-                          ),
-                          icon: const Icon(Icons.edit_note_sharp),
-                        ),
-                      ],
-                    ),
+                  child: ActionBox(
+                    controller: widget.controller,
                   ),
                 ),
                 onDragEnd: (details) => updatePosition(details.offset),
                 child: Transform.scale(
                   scale: scale,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      // border: Border.all(
-                      //   color: controller.themeMode == ThemeMode.dark
-                      //       ? Colors.white10.withAlpha(80)
-                      //       : Colors.black.withAlpha(80),
-                      // ),
-                      borderRadius: BorderRadius.circular(6),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withAlpha(100),
-                          blurRadius: 10.0,
-                          spreadRadius: 0.0,
-                        ),
-                      ],
-                      color: Colors.grey.withOpacity(0.2),
-                    ),
-                    child: Column(
-                      children: [
-                        IconButton(
-                          onPressed: () => widget.controller.updateThemeMode(
-                            widget.controller.themeMode == ThemeMode.light
-                                ? ThemeMode.dark
-                                : ThemeMode.light,
-                          ),
-                          icon: Builder(
-                            builder: (_) {
-                              switch (widget.controller.themeMode) {
-                                case ThemeMode.light:
-                                  return const Icon(Icons.dark_mode);
-                                case ThemeMode.dark:
-                                  return const Icon(Icons.light_mode);
-                                default:
-                                  return const Icon(Icons.dark_mode);
-                              }
-                            },
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => EditView(
-                                controller: widget.controller,
-                              ),
-                            ),
-                          ),
-                          icon: const Icon(Icons.edit_note_sharp),
-                        ),
-                      ],
-                    ),
+                  child: ActionBox(
+                    controller: widget.controller,
                   ),
                 ),
               ),
@@ -261,45 +108,6 @@ class _HomeViewState extends State<HomeView> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class DetailsWidget extends StatelessWidget {
-  final String title;
-  final String description;
-
-  const DetailsWidget({
-    super.key,
-    required this.title,
-    required this.description,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          flex: 2,
-          child: Text(
-            title,
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-        ),
-        Expanded(
-          flex: 4,
-          child: description.contains('http')
-              //? find a way to know if the image is loading
-              ? Image.network(
-                  'https://res.cloudinary.com/dbql17dyz/image/upload/v1694251329/profile-pic_geigt8.png',
-                )
-              : Text(
-                  description,
-                  style: Theme.of(context).textTheme.titleMedium,
-                ),
-        ),
-      ],
     );
   }
 }
