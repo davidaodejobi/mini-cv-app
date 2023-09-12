@@ -60,16 +60,6 @@ class _HomeViewState extends State<HomeView> {
                   ),
                   20.h,
                   DetailsWidget(
-                    title: 'Bio',
-                    description: widget.controller.user.bio,
-                  ),
-                  30.h,
-                  DetailsWidget(
-                    title: '',
-                    description: widget.controller.user.imageUrl,
-                  ),
-                  30.h,
-                  DetailsWidget(
                     title: 'Name',
                     description: widget.controller.user.name,
                   ),
@@ -78,6 +68,17 @@ class _HomeViewState extends State<HomeView> {
                     title: 'Slack Username',
                     description: widget.controller.user.slackUserName,
                   ),
+                  30.h,
+                  DetailsWidget(
+                    title: '',
+                    description: widget.controller.user.imageUrl,
+                  ),
+                  30.h,
+                  DetailsWidget(
+                    title: 'Bio',
+                    description: widget.controller.user.bio,
+                  ),
+                  30.h,
                 ],
               ),
             ),
@@ -244,7 +245,9 @@ class _HomeViewState extends State<HomeView> {
                           onPressed: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => const EditView(),
+                              builder: (_) => EditView(
+                                controller: widget.controller,
+                              ),
                             ),
                           ),
                           icon: const Icon(Icons.edit_note_sharp),

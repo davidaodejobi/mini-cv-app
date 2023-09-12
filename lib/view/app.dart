@@ -14,15 +14,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Glue the SettingsController to the MaterialApp.
-    //
-    // The AnimatedBuilder Widget listens to the SettingsController for changes.
-    // Whenever the user updates their settings, the MaterialApp is rebuilt.
     return AnimatedBuilder(
       animation: settingsController,
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
           theme: ThemeData(
+            primaryColor: Colors.black,
+            appBarTheme: const AppBarTheme(
+                elevation: 0,
+                backgroundColor: Colors.transparent,
+                iconTheme: IconThemeData(
+                  color: Colors.black,
+                )),
             textTheme: const TextTheme(
               displayLarge: TextStyle(
                 color: Colors.black,
@@ -42,6 +45,13 @@ class MyApp extends StatelessWidget {
             ),
           ),
           darkTheme: ThemeData(
+            primaryColor: Colors.white,
+            appBarTheme: const AppBarTheme(
+                elevation: 0,
+                backgroundColor: Colors.transparent,
+                iconTheme: IconThemeData(
+                  color: Colors.white,
+                )),
             brightness: Brightness.dark,
             textTheme: const TextTheme(
               displayLarge: TextStyle(
@@ -65,24 +75,6 @@ class MyApp extends StatelessWidget {
           home: HomeView(
             controller: settingsController,
           ),
-          // Define a function to handle named routes in order to support
-          // Flutter web url navigation and deep linking.
-          // onGenerateRoute: (RouteSettings routeSettings) {
-          //   return MaterialPageRoute<void>(
-          //     settings: routeSettings,
-          //     builder: (BuildContext context) {
-          //       switch (routeSettings.name) {
-          //         case SettingsView.routeName:
-          //           return SettingsView(controller: settingsController);
-          //         case SampleItemDetailsView.routeName:
-          //           return const SampleItemDetailsView();
-          //         case SampleItemListView.routeName:
-          //         default:
-          //           return const SampleItemListView();
-          //       }
-          //     },
-          //   );
-          // },
         );
       },
     );

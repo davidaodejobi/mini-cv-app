@@ -6,5 +6,5 @@ final baseUser = User(
   imageUrl:
       'https://res.cloudinary.com/dbql17dyz/image/upload/v1694251329/profile-pic_geigt8.png',
   bio:
-      'I am a dedicated mobile engineer with a strong emphasis on creating and delivering high-quality mobile applications for businesses. In my free time, I just learn, and learn. Like learning new concepts and programming languages, and learning how to take time off screen.',
+      "I am a passionate mobile engineer who takes great pride in crafting top-notch mobile applications for businesses. When I'm not immersed in code, you might find me on a never-ending quest for knowledge, striving to maintain just the right balance of humanity to keep myself out of the matrix. Because, let's face it, even engineers need a sprinkle of humor to stay sane in this digital realm!",
 );
