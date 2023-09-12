@@ -26,6 +26,19 @@ class _HomeViewState extends State<HomeView> {
   void commitScale() => setState(() => prevScale = scale);
   void updatePosition(Offset newPosition) =>
       setState(() => position = newPosition);
+
+  @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 1), () {
+      widget.controller.updateThemeMode(
+        widget.controller.themeMode == ThemeMode.light
+            ? ThemeMode.dark
+            : ThemeMode.light,
+      );
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
