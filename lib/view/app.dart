@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'home/home_controller.dart';
+import '../controller/home_controller.dart';
 import 'home/home_view.dart';
 
 /// The Widget that configures your application.

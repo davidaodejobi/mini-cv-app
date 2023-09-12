@@ -1,7 +1,8 @@
 import 'package:cv_app/utils/extensions.dart';
+import 'package:cv_app/view/edit/edit_view.dart';
 import 'package:flutter/material.dart';
 
-import 'home_controller.dart';
+import '../../controller/home_controller.dart';
 
 /// Displays the various settings that can be customized by the user.
 ///
@@ -19,7 +20,7 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  Offset position = const Offset(100, 100);
+  Offset position = const Offset(50, 300);
   double prevScale = 1;
   double scale = 1;
 
@@ -58,26 +59,24 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
                   20.h,
-                  const DetailsWidget(
+                  DetailsWidget(
                     title: 'Bio',
-                    description:
-                        'I am a dedicated mobile engineer with a strong emphasis on creating and delivering high-quality mobile applications for businesses. In my free time, I just learn, and learn. Like learning new concepts and programming languages, and learning how to take time off screen.',
+                    description: widget.controller.user.bio,
                   ),
                   30.h,
-                  const DetailsWidget(
+                  DetailsWidget(
                     title: '',
-                    description:
-                        'https://res.cloudinary.com/dbql17dyz/image/upload/v1694251329/profile-pic_geigt8.png',
+                    description: widget.controller.user.imageUrl,
                   ),
                   30.h,
-                  const DetailsWidget(
+                  DetailsWidget(
                     title: 'Name',
-                    description: 'David Odejobi',
+                    description: widget.controller.user.name,
                   ),
                   30.h,
-                  const DetailsWidget(
+                  DetailsWidget(
                     title: 'Slack Username',
-                    description: 'ckodes',
+                    description: widget.controller.user.slackUserName,
                   ),
                 ],
               ),
@@ -245,11 +244,7 @@ class _HomeViewState extends State<HomeView> {
                           onPressed: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => const Scaffold(
-                                  body: Center(
-                                      child: Text(
-                                'Settings',
-                              ))),
+                              builder: (_) => const EditView(),
                             ),
                           ),
                           icon: const Icon(Icons.edit_note_sharp),
